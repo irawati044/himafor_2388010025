@@ -1,640 +1,713 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Profil HIMAFOR - Himpunan Mahasiswa Informatika</title>
+<title>HIMAFOR - Himpunan Mahasiswa Informatika</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    <style>
+<style>
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            scroll-behavior:smooth;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
 
-        body{
-            font-family:'Poppins',sans-serif;
-            min-height:100vh;
-            overflow-x:hidden;
+body{
+    font-family:'Space Grotesk',sans-serif;
+    overflow-x:hidden;
+    color:white;
+    background:#050816;
+}
 
-            background:
-            radial-gradient(circle at top left, rgba(0,91,234,0.3), transparent 30%),
-            radial-gradient(circle at bottom right, rgba(62,198,224,0.2), transparent 30%),
-            linear-gradient(135deg,#050816,#0d1633,#121f49);
+/* ================= BACKGROUND ================= */
 
-            color:white;
-        }
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
 
-        /* ================= HERO ================= */
+    background:
+    radial-gradient(circle at 20% 20%, rgba(0,140,255,0.35), transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(0,255,200,0.18), transparent 25%),
+    linear-gradient(135deg,#050816,#0a1026,#101b40);
 
-        .hero-modern{
-            min-height:100vh;
+    z-index:-5;
+}
 
-            display:flex;
-            align-items:center;
-            justify-content:center;
+body::after{
+    content:'';
+    position:fixed;
+    inset:0;
 
-            position:relative;
-            overflow:hidden;
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
 
-            padding:40px;
-        }
+    background-size:40px 40px;
 
-        .hero-modern::before{
-            content:'';
-            position:absolute;
-            inset:0;
+    z-index:-4;
+}
 
-            background:
-            linear-gradient(rgba(0,0,0,0.55),
-            rgba(0,0,0,0.55)),
+/* ================= HERO ================= */
 
-            url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=2070&auto=format&fit=crop');
+.hero-modern{
+    min-height:100vh;
+    position:relative;
 
-            background-size:cover;
-            background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-            z-index:1;
-        }
+    overflow:hidden;
+    padding:40px;
+}
 
-        .glass{
-            position:relative;
-            z-index:5;
+.hero-modern::before{
+    content:'';
+    position:absolute;
+    width:650px;
+    height:650px;
 
-            width:100%;
-            max-width:580px;
+    background:linear-gradient(135deg,#008cff,#00ffd0);
 
-            padding:70px 50px;
+    border-radius:40% 60% 70% 30% / 30% 40% 60% 70%;
 
-            border-radius:35px;
+    filter:blur(90px);
+    opacity:0.22;
 
-            background:rgba(255,255,255,0.08);
+    animation:blob 10s infinite alternate ease-in-out;
+}
 
-            backdrop-filter:blur(22px);
-            -webkit-backdrop-filter:blur(22px);
+@keyframes blob{
 
-            border:1px solid rgba(255,255,255,0.12);
+    0%{
+        transform:translate(-120px,-80px) rotate(0deg);
+    }
 
-            box-shadow:
-            0 25px 80px rgba(0,0,0,0.45),
-            inset 0 1px 1px rgba(255,255,255,0.08);
+    100%{
+        transform:translate(120px,80px) rotate(180deg);
+    }
 
-            text-align:center;
+}
 
-            transition:0.4s;
-        }
+/* ================= GLASS ================= */
 
-        .glass:hover{
-            transform:translateY(-8px);
-            box-shadow:
-            0 30px 90px rgba(0,0,0,0.5),
-            0 0 40px rgba(62,198,224,0.25);
-        }
+.glass{
+    position:relative;
+    z-index:10;
 
-        .hero-modern img{
-            width:140px;
+    width:100%;
+    max-width:1200px;
 
-            padding:12px;
+    border-radius:40px;
 
-            border-radius:50%;
+    overflow:hidden;
 
-            background:rgba(255,255,255,0.08);
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
 
-            border:2px solid rgba(255,255,255,0.15);
+    background:rgba(255,255,255,0.05);
 
-            margin-bottom:25px;
+    backdrop-filter:blur(24px);
 
-            box-shadow:
-            0 15px 35px rgba(0,0,0,0.4),
-            0 0 25px rgba(62,198,224,0.2);
+    border:1px solid rgba(255,255,255,0.08);
 
-            transition:0.4s;
-        }
+    box-shadow:
+    0 25px 80px rgba(0,0,0,0.45);
+}
 
-        .hero-modern img:hover{
-            transform:scale(1.05) rotate(-4deg);
-        }
+/* ================= LEFT ================= */
 
-        .hero-modern h1{
-            font-family:'Orbitron',sans-serif;
+.hero-left{
+    padding:80px 70px;
+    position:relative;
+}
 
-            font-size:4rem;
-            letter-spacing:5px;
+.hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
 
-            margin-bottom:12px;
+    padding:10px 18px;
 
-            background:linear-gradient(to right,#ffffff,#7be7ff);
+    border-radius:50px;
 
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
-        }
+    background:rgba(255,255,255,0.06);
 
-        .hero-modern p{
-            font-size:1.15rem;
-            color:rgba(255,255,255,0.82);
+    border:1px solid rgba(255,255,255,0.08);
 
-            line-height:1.8;
+    margin-bottom:28px;
 
-            margin-bottom:30px;
-        }
+    color:#a7f3ff;
+    font-size:0.9rem;
+}
 
-        .hero-modern .cta-btn{
-            display:inline-block;
+.hero-tag::before{
+    content:'';
+    width:10px;
+    height:10px;
 
-            padding:16px 42px;
+    background:#00ffd0;
 
-            border-radius:50px;
+    border-radius:50%;
 
-            text-decoration:none;
+    box-shadow:0 0 15px #00ffd0;
+}
 
-            font-weight:600;
+.hero-modern h1{
+    font-family:'Syne',sans-serif;
 
-            background:linear-gradient(135deg,#005bea,#3ec6e0);
+    font-size:5.3rem;
+    line-height:1;
 
-            color:white;
+    margin-bottom:25px;
 
-            box-shadow:
-            0 10px 30px rgba(0,91,234,0.35);
+    background:linear-gradient(to right,#fff,#8fe8ff);
 
-            transition:0.35s;
-        }
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 
-        .hero-modern .cta-btn:hover{
-            transform:translateY(-5px) scale(1.03);
+.hero-modern p{
+    font-size:1.08rem;
+    line-height:2;
 
-            box-shadow:
-            0 20px 45px rgba(62,198,224,0.35);
-        }
+    color:rgba(255,255,255,0.72);
 
-        .hero-modern .divider{
-            width:90px;
-            height:5px;
+    max-width:560px;
 
-            border-radius:50px;
+    margin-bottom:40px;
+}
 
-            margin:30px auto;
+/* ================= BUTTON ================= */
 
-            background:linear-gradient(to right,#005bea,#3ec6e0);
+.button-group{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
 
-            box-shadow:0 0 20px rgba(62,198,224,0.4);
-        }
+.cta-btn{
+    padding:17px 38px;
 
-        /* ================= SECTION ================= */
+    border-radius:18px;
 
-        .modern-section{
-            position:relative;
-            z-index:10;
+    text-decoration:none;
 
-            width:90%;
-            max-width:1100px;
+    font-weight:700;
 
-            margin:-100px auto 60px auto;
+    transition:0.35s;
+}
 
-            padding:60px 50px;
+.primary-btn{
+    background:linear-gradient(135deg,#008cff,#00ffd0);
 
-            border-radius:35px;
+    color:#07111f;
 
-            background:rgba(255,255,255,0.06);
+    box-shadow:
+    0 15px 35px rgba(0,255,208,0.2);
+}
 
-            border:1px solid rgba(255,255,255,0.08);
+.primary-btn:hover{
+    transform:translateY(-6px);
+}
 
-            backdrop-filter:blur(20px);
+.secondary-btn{
+    border:1px solid rgba(255,255,255,0.12);
 
-            box-shadow:
-            0 20px 60px rgba(0,0,0,0.35);
-        }
+    background:rgba(255,255,255,0.05);
 
-        .modern-section h2{
-            font-size:2.2rem;
+    color:white;
+}
 
-            margin-bottom:20px;
+.secondary-btn:hover{
+    background:white;
+    color:#111;
+}
 
-            background:linear-gradient(to right,#ffffff,#7be7ff);
+/* ================= RIGHT ================= */
 
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
-        }
+.hero-right{
+    position:relative;
 
-        /* ================= VISI ================= */
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-        .vision-modern{
-            position:relative;
+    overflow:hidden;
 
-            margin-bottom:40px;
+    background:
+    linear-gradient(135deg,
+    rgba(255,255,255,0.04),
+    rgba(255,255,255,0.01));
+}
 
-            padding:35px;
+.hero-right::before{
+    content:'';
+    position:absolute;
 
-            border-radius:28px;
+    width:450px;
+    height:450px;
 
-            background:
-            linear-gradient(135deg,
-            rgba(0,91,234,0.15),
-            rgba(62,198,224,0.08));
+    border:1px solid rgba(255,255,255,0.08);
 
-            border:1px solid rgba(255,255,255,0.08);
+    border-radius:50%;
 
-            border-left:5px solid #3ec6e0;
+    animation:rotate 25s linear infinite;
+}
 
-            box-shadow:
-            0 10px 35px rgba(0,0,0,0.25);
+.hero-right::after{
+    content:'';
+    position:absolute;
 
-            transition:0.35s;
-        }
+    width:320px;
+    height:320px;
 
-        .vision-modern:hover{
-            transform:translateY(-5px);
-        }
+    border:1px solid rgba(255,255,255,0.05);
 
-        .vision-modern p{
-            line-height:1.9;
-            color:rgba(255,255,255,0.82);
-        }
+    border-radius:50%;
 
-        .vision-modern::after{
-            content:'VISIONER';
+    animation:rotateReverse 18s linear infinite;
+}
 
-            position:absolute;
+@keyframes rotate{
 
-            top:-18px;
-            right:25px;
+    from{
+        transform:rotate(0deg);
+    }
 
-            font-size:1rem;
-            letter-spacing:4px;
+    to{
+        transform:rotate(360deg);
+    }
 
-            color:#7be7ff;
+}
 
-            opacity:0.25;
+@keyframes rotateReverse{
 
-            font-weight:bold;
-        }
+    from{
+        transform:rotate(360deg);
+    }
 
-        /* ================= LIST ================= */
+    to{
+        transform:rotate(0deg);
+    }
 
-        .modern-section ul{
-            padding-left:20px;
-        }
+}
 
-        .modern-section ul li{
-            margin-bottom:16px;
+.hero-right img{
+    width:220px;
 
-            line-height:1.9;
+    z-index:5;
 
-            color:rgba(255,255,255,0.82);
-        }
+    filter:
+    drop-shadow(0 20px 40px rgba(0,0,0,0.4))
+    drop-shadow(0 0 30px rgba(0,255,208,0.2));
 
-        /* ================= VALUES ================= */
+    animation:floating 4s ease-in-out infinite;
+}
 
-        .values-modern{
-            display:grid;
+@keyframes floating{
 
-            grid-template-columns:
-            repeat(auto-fit,minmax(220px,1fr));
+    0%,100%{
+        transform:translateY(0px);
+    }
 
-            gap:28px;
+    50%{
+        transform:translateY(-18px);
+    }
 
-            margin-top:35px;
-        }
+}
 
-        .value-modern{
-            position:relative;
+/* ================= SECTION ================= */
 
-            padding:40px 25px;
+.modern-section{
+    width:92%;
+    max-width:1300px;
 
-            border-radius:28px;
+    margin:auto;
 
-            overflow:hidden;
+    padding:80px 0 100px 0;
+}
 
-            background:
-            linear-gradient(135deg,
-            rgba(255,255,255,0.08),
-            rgba(255,255,255,0.03));
+.modern-section h2{
+    font-family:'Syne',sans-serif;
 
-            border:1px solid rgba(255,255,255,0.08);
+    font-size:3rem;
 
-            backdrop-filter:blur(18px);
+    margin-bottom:18px;
 
-            box-shadow:
-            0 12px 35px rgba(0,0,0,0.28);
+    background:linear-gradient(to right,#fff,#8fe8ff);
 
-            text-align:center;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 
-            transition:0.4s;
-        }
+.modern-section > p{
+    color:rgba(255,255,255,0.68);
+    margin-bottom:60px;
+}
 
-        .value-modern::before{
-            content:'';
+/* ================= VISI MISI ================= */
 
-            position:absolute;
+.top-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
 
-            width:180px;
-            height:180px;
+    margin-bottom:40px;
+}
 
-            background:rgba(62,198,224,0.08);
+.vision-modern{
+    position:relative;
 
-            border-radius:50%;
+    padding:40px;
 
-            top:-70px;
-            right:-70px;
-        }
+    border-radius:30px;
 
-        .value-modern:hover{
-            transform:translateY(-10px) scale(1.03);
+    background:
+    linear-gradient(135deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.02));
 
-            box-shadow:
-            0 20px 50px rgba(62,198,224,0.2);
-        }
+    border:1px solid rgba(255,255,255,0.08);
 
-        .value-modern img{
-            width:70px;
+    overflow:hidden;
 
-            margin-bottom:18px;
+    transition:0.4s;
+}
 
-            position:relative;
-            z-index:2;
+.vision-modern:hover{
+    transform:translateY(-8px);
+}
 
-            filter:drop-shadow(0 5px 15px rgba(0,0,0,0.3));
-        }
+.vision-modern::before{
+    content:'';
+    position:absolute;
 
-        .value-modern h3{
-            position:relative;
-            z-index:2;
+    width:180px;
+    height:180px;
 
-            font-size:1.4rem;
+    background:rgba(0,255,208,0.08);
 
-            margin-bottom:12px;
+    border-radius:50%;
 
-            color:white;
-        }
+    top:-60px;
+    right:-60px;
+}
 
-        .value-modern p{
-            position:relative;
-            z-index:2;
+.vision-modern h3{
+    font-size:1.7rem;
+    margin-bottom:18px;
 
-            line-height:1.8;
+    color:#9df6ff;
+}
 
-            color:rgba(255,255,255,0.72);
-        }
+.vision-modern p,
+.vision-modern li{
+    line-height:2;
+    color:rgba(255,255,255,0.72);
+}
 
-        /* ================= FOOTER ================= */
+.vision-modern ul{
+    padding-left:18px;
+}
 
-        footer{
-            text-align:center;
+/* ================= VALUES ================= */
 
-            padding:50px 20px;
+.values-modern{
+    display:grid;
 
-            color:rgba(255,255,255,0.65);
-        }
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
 
-        footer b{
-            color:white;
-        }
+    gap:28px;
+}
 
-        /* ================= BACKGROUND BLUR ================= */
+.value-modern{
+    position:relative;
 
-        .bg-blur{
-            position:absolute;
+    padding:40px 28px;
 
-            border-radius:50%;
+    border-radius:28px;
 
-            filter:blur(120px);
+    background:
+    linear-gradient(135deg,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.02));
 
-            opacity:0.45;
+    border:1px solid rgba(255,255,255,0.08);
 
-            z-index:2;
-        }
+    overflow:hidden;
 
-        .bg-blur1{
-            width:400px;
-            height:400px;
+    transition:0.4s;
+}
 
-            background:#005bea;
+.value-modern:hover{
+    transform:translateY(-10px);
+    box-shadow:
+    0 20px 50px rgba(0,255,208,0.08);
+}
 
-            top:-100px;
-            left:-100px;
-        }
+.value-modern img{
+    width:70px;
+    margin-bottom:20px;
 
-        .bg-blur2{
-            width:300px;
-            height:300px;
+    filter:drop-shadow(0 10px 20px rgba(0,0,0,0.35));
+}
 
-            background:#00d9ff;
+.value-modern h3{
+    font-size:1.4rem;
+    margin-bottom:14px;
+}
 
-            bottom:-100px;
-            right:-100px;
-        }
+.value-modern p{
+    line-height:1.9;
+    color:rgba(255,255,255,0.7);
+}
 
-        /* ================= RESPONSIVE ================= */
+/* ================= FOOTER ================= */
 
-        @media (max-width:768px){
+footer{
+    text-align:center;
 
-            .glass{
-                padding:45px 25px;
-            }
+    padding:45px 20px 55px 20px;
 
-            .hero-modern h1{
-                font-size:2.6rem;
-            }
+    color:rgba(255,255,255,0.55);
 
-            .modern-section{
-                width:94%;
+    border-top:1px solid rgba(255,255,255,0.06);
 
-                padding:40px 25px;
+    margin-top:40px;
+}
 
-                margin-top:-60px;
-            }
+footer span{
+    color:#8fe8ff;
+}
 
-            .modern-section h2{
-                font-size:1.8rem;
-            }
+/* ================= RESPONSIVE ================= */
 
-        }
+@media(max-width:980px){
 
-        @media (max-width:480px){
+    .glass{
+        grid-template-columns:1fr;
+    }
 
-            .hero-modern h1{
-                font-size:2rem;
-            }
+    .hero-right{
+        min-height:350px;
+    }
 
-            .hero-modern p{
-                font-size:1rem;
-            }
+    .hero-modern h1{
+        font-size:3.8rem;
+    }
 
-        }
+    .top-grid{
+        grid-template-columns:1fr;
+    }
 
-    </style>
+}
 
+@media(max-width:650px){
+
+    .hero-left{
+        padding:50px 28px;
+    }
+
+    .hero-modern h1{
+        font-size:2.8rem;
+    }
+
+    .modern-section h2{
+        font-size:2.2rem;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
-    <div class="hero-modern animate__animated animate__fadeInDown">
+<div class="hero-modern animate__animated animate__fadeIn">
 
-        <div class="bg-blur bg-blur1"></div>
-        <div class="bg-blur bg-blur2"></div>
+    <div class="glass">
 
-        <div class="glass animate__animated animate__fadeInUp">
+        <!-- LEFT -->
 
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-            alt="Logo HIMAFOR"/>
+        <div class="hero-left">
+
+            <div class="hero-tag">
+                NEXT GENERATION ORGANIZATION
+            </div>
 
             <h1>HIMAFOR</h1>
 
             <p>
-                Himpunan Mahasiswa Informatika yang visioner,
-                inovatif, dan berdaya saing global.
+                Himpunan Mahasiswa Informatika yang menjadi pusat
+                inovasi, kreativitas, dan pengembangan mahasiswa
+                berbasis teknologi modern dan kolaborasi digital.
             </p>
 
-            <a href="#tentang" class="cta-btn">
-                Lihat Profil
-            </a>
+            <div class="button-group">
 
-            <div class="divider"></div>
+                <a href="#tentang"
+                class="cta-btn primary-btn">
+                    Explore More
+                </a>
 
-            <span style="
-            color:#7be7ff;
-            font-weight:600;
-            letter-spacing:2px;
-            ">
-                Visioner • Inovatif • Kolaboratif
-            </span>
+                <a href="#tentang"
+                class="cta-btn secondary-btn">
+                    Our Vision
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="hero-right">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+            alt="Logo HIMAFOR">
 
         </div>
 
     </div>
 
-    <div id="tentang"
-    class="modern-section animate__animated animate__fadeInUp">
+</div>
 
-        <section class="vision-modern animate__animated animate__fadeInLeft">
+<!-- ================= CONTENT ================= -->
 
-            <h2>Visi</h2>
+<div id="tentang" class="modern-section">
+
+    <h2>Tentang HIMAFOR</h2>
+
+    <p>
+        Organisasi mahasiswa informatika modern yang berfokus pada
+        pengembangan teknologi, kreativitas, dan kolaborasi.
+    </p>
+
+    <div class="top-grid">
+
+        <div class="vision-modern">
+
+            <h3>Visi</h3>
 
             <p>
-                Menjadi himpunan mahasiswa informatika yang
-                <b>visioner</b>, <b>inovatif</b>,
-                dan <b>berdaya saing global</b>,
-                serta menjadi wadah pengembangan
-                potensi, kreativitas, dan profesionalisme mahasiswa.
+                Menjadi himpunan mahasiswa informatika yang visioner,
+                inovatif, dan berdaya saing global serta menjadi
+                wadah pengembangan potensi mahasiswa.
             </p>
 
-        </section>
+        </div>
 
-        <section class="animate__animated animate__fadeInRight">
+        <div class="vision-modern">
 
-            <h2>Misi</h2>
+            <h3>Misi</h3>
 
             <ul>
+
                 <li>
-                    Mengembangkan potensi dan kompetensi anggota
-                    di bidang teknologi informasi.
+                    Mengembangkan kompetensi mahasiswa informatika.
                 </li>
 
                 <li>
-                    Mendorong inovasi dan kreativitas melalui
-                    kegiatan akademik maupun non-akademik.
+                    Mendorong inovasi dan kreativitas digital.
                 </li>
 
                 <li>
-                    Membangun jejaring dan kolaborasi dengan
-                    berbagai pihak.
+                    Membangun relasi dan kolaborasi luas.
                 </li>
 
                 <li>
-                    Mewujudkan lingkungan organisasi yang
-                    profesional, inklusif, dan berintegritas.
+                    Menciptakan organisasi profesional dan inklusif.
                 </li>
+
             </ul>
 
-        </section>
-
-        <section class="animate__animated animate__fadeInUp">
-
-            <h2>Nilai-Nilai Utama</h2>
-
-            <div class="values-modern">
-
-                <div class="value-modern animate__animated animate__zoomIn">
-
-                    <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png"
-                    alt="Inovasi">
-
-                    <h3>Inovasi</h3>
-
-                    <p>
-                        Selalu berinovasi dalam setiap kegiatan
-                        dan program kerja.
-                    </p>
-
-                </div>
-
-                <div class="value-modern animate__animated animate__zoomIn animate__delay-1s">
-
-                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png"
-                    alt="Kolaborasi">
-
-                    <h3>Kolaborasi</h3>
-
-                    <p>
-                        Menjunjung tinggi semangat kerja sama
-                        dan kebersamaan.
-                    </p>
-
-                </div>
-
-                <div class="value-modern animate__animated animate__zoomIn animate__delay-2s">
-
-                    <img src="https://cdn-icons-png.flaticon.com/512/190/190406.png"
-                    alt="Profesionalisme">
-
-                    <h3>Profesionalisme</h3>
-
-                    <p>
-                        Bertindak profesional dan bertanggung jawab
-                        dalam setiap aktivitas.
-                    </p>
-
-                </div>
-
-                <div class="value-modern animate__animated animate__zoomIn animate__delay-3s">
-
-                    <img src="https://cdn-icons-png.flaticon.com/512/190/190422.png"
-                    alt="Integritas">
-
-                    <h3>Integritas</h3>
-
-                    <p>
-                        Menjaga kejujuran, etika,
-                        dan kepercayaan dalam organisasi.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
+        </div>
 
     </div>
 
-    <footer>
+    <!-- VALUES -->
 
-        &copy; 2026 <b>HIMAFOR</b> -
-        Himpunan Mahasiswa Informatika.
+    <div class="values-modern">
 
-        <br><br>
+        <div class="value-modern">
 
-        <span style="color:#7be7ff">
-            Visioner • Inovatif • Kolaboratif
-        </span>
+            <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png">
 
-    </footer>
+            <h3>Inovasi</h3>
+
+            <p>
+                Menghadirkan ide dan solusi kreatif
+                dalam setiap program kerja.
+            </p>
+
+        </div>
+
+        <div class="value-modern">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png">
+
+            <h3>Kolaborasi</h3>
+
+            <p>
+                Menumbuhkan budaya kerja sama
+                dan solidaritas mahasiswa.
+            </p>
+
+        </div>
+
+        <div class="value-modern">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/190/190406.png">
+
+            <h3>Profesionalisme</h3>
+
+            <p>
+                Bertindak disiplin, bertanggung jawab,
+                dan berintegritas tinggi.
+            </p>
+
+        </div>
+
+        <div class="value-modern">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/190/190422.png">
+
+            <h3>Integritas</h3>
+
+            <p>
+                Menjunjung tinggi etika,
+                kejujuran, dan kepercayaan.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+
+    © 2026 <b>HIMAFOR</b> —
+    Himpunan Mahasiswa Informatika
+
+    <br><br>
+
+    <span>
+        Visioner • Inovatif • Kolaboratif
+    </span>
+
+</footer>
 
 </body>
 </html>
