@@ -45,7 +45,6 @@ jobs:
           script: |
             docker rm -f /home/ubuntu/container-dinamis/database || true
             docker rm -f /home/ubuntu/container-dinamis/web-dinamis || true
-
       - name: Copy Compose file EC2 via SCP 
         uses: appleboy/scp-action@master
         with:
