@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "postbuild": "node -e \"const{cpSync}=require('fs');cpSync('public','.next/standalone/public',{recursive:true});cpSync('.next/static','.next/standalone/.next/static',{recursive:true});console.log('✓ Static assets copied to standalone')\"",
-    "start": "node .next/standalone/web-dinamis/server.js",
+    "start": "node .next/standalone/server.js",
     "lint": "eslint"
   },
   "dependencies": {
