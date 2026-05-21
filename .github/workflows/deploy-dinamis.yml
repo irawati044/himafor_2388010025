@@ -27,7 +27,7 @@ jobs:
           file: ./web-dinamis/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/web-dinamis:latest
-      
+
   deploy-to-ec2:
     runs-on: ubuntu-latest
     needs: build-and-deploy-web-dinamis
@@ -39,20 +39,20 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.AWS_HOST }}
-          username: ${{ secrets.AWS_USERNAME }} # <- Sudah disamakan
+          username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           port: 22
           script: |
             docker rm -f /home/ubuntu/container-dinamis/database || true
             docker rm -f /home/ubuntu/container-dinamis/web-dinamis || true
-      - name: Copy Compose file EC2 via SCP 
+
+      - name: Copy Compose file EC2 via SCP
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           port: 22
-          # Ditulis dalam satu baris menggunakan tanda koma tanpa spasi setelah koma
           source: "web-dinamis/docker-compose.yml,web-dinamis/db_data/dbcompro1.sql"
           target: "/home/ubuntu/container-dinamis"
 
@@ -64,7 +64,6 @@ jobs:
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           port: 22
           script: |
-            # Masuk ke dalam sub-folder tempat docker-compose.yml Anda mendarat
             cd /home/ubuntu/container-dinamis/web-dinamis
             export DOCKERHUB_USERNAME="${{ secrets.DOCKERHUB_USERNAME }}"
             docker compose pull
