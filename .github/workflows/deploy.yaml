@@ -37,7 +37,7 @@ jobs:
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /home/ubuntu/container-dinamis
+            cd /home/ubuntu/container-dinamis/web-dinamis
             docker compose down
             docker compose pull
             docker compose up -d
