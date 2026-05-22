@@ -4,16 +4,16 @@ services:
     image: mariadb:lts
     environment:
       MARIADB_ROOT_PASSWORD: password!123
-      MARIADB_DATABASE: dbcompro_nim
-      MARIADB_USER: userwebdinamis_nim
-      MARIADB_PASSWORD: O)xz6GWEwDOx1Ea9
+      MARIADB_DATABASE: dbcompro1
+      MARIADB_USER: userweb_2388010025
+      MARIADB_PASSWORD: Iwv(0N3Edj-Tm2*b
     volumes:
       - db_data:/var/lib/mysql
-      - ./db_data/dbcompro_nim.sql:/docker-entrypoint-initdb.d/dbcompro_nim.sql:ro
+      - ./db_data/dbcompro1.sql:/docker-entrypoint-initdb.d/dbcompro1.sql:ro
     restart: always
 
   container-statis:
-    image: irawatiiskandar/himafor_nim:latest
+    image: irawatiiskandar/himafor_2388010025:latest
     ports:
       - "80:80"
     restart: always
