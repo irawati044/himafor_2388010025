@@ -30,14 +30,14 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/himafor_2388010025:latest
 
       - name: Deploy to EC2 via SSH and run docker compose
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.AWS_HOST }}
-          username: ${{ secrets.AWS_USERNAME }}
-          key: ${{ secrets.AWS_PRIVATE_KEY }}
-          port: 22
-          script: |
-            cd /home/ubuntu
-            docker compose -f docker-compose.yml down
-            docker compose -f docker-compose.yml pull
-            docker compose -f docker-compose.yml up -d
+  uses: appleboy/ssh-action@v1.0.3
+  with:
+    host: ${{ secrets.AWS_HOST }}
+    username: ${{ secrets.AWS_USERNAME }}
+    key: ${{ secrets.AWS_PRIVATE_KEY }}
+    port: 22
+    script: |
+      cd /home/ubuntu/himafor_2388010025/web-dinamis
+      docker compose down
+      docker compose pull
+      docker compose up -d
