@@ -8,26 +8,26 @@ services:
       MARIADB_ROOT_PASSWORD: "password!123"
       MARIADB_DATABASE: "dbcompro1"
       MARIADB_USER: "userweb_23880100025"
-      MARIADB_PASSWORD: "PXwA6o[sUQ9v-X)i"
+      MARIADB_PASSWORD: "Iwv(0N3Edj-Tm2*b"
     volumes:
       - db_data:/var/lib/mysql
       - ./db_data/dbcompro1.sql:/docker-entrypoint-initdb.d/dbcompro1.sql:ro
     restart: always
 
   container-statis:
-    image: "${DOCKERHUB_USERNAME}/himafor_23880100025:latest"
+    image: "${DOCKERHUB_USERNAME}/himafor_2388010025:latest"
     restart: always
     ports:
       - "80:80"
 
   container-dinamis:
-    image: "${DOCKERHUB_USERNAME}/web-dinamis_23880100025:latest"
+    image: "${DOCKERHUB_USERNAME}/web-dinamis:latest"
     restart: always
     ports:
       - "3000:3000"
     environment:
       DB_USER: "userweb_23880100025"
-      DB_PASSWORD: "PXwA6o[sUQ9v-X)i"
+      DB_PASSWORD: "Iwv(0N3Edj-Tm2*b"
       DB_NAME: "dbcompro1"
       DB_HOST: "db-webdinamis"
       NEXTAUTH_SECRET: "ini-kdkdkdkdkdkkd-hdhdhdhdhdhdh-"
