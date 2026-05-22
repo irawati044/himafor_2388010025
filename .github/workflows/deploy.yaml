@@ -2,6 +2,9 @@ name: Deploy to AWS EC2 with Docker
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'web-statis/**'
+      - '.github/workflows/deploy.yaml'
 
 jobs:
   build-and-deploy:
