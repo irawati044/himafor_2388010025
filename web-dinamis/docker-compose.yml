@@ -16,9 +16,9 @@ services:
     
   container-statis:
   image: ${DOCKERHUB_USERNAME}/himafor_23880100025:latest
+  restart: always
   ports:
       - "80:80"
-  restart: always
 
   container-dinamis:
     image: ${DOCKERHUB_USERNAME}/web-dinamis_23880100025:latest
